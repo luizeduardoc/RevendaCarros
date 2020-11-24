@@ -7,7 +7,7 @@ namespace RevendaCarros.Infrastructure
     {
         //public DbSet<Alugueis> Alugueis { get; set; }
         //public DbSet<Vendas> Vendas { get; set; }
-        //public DbSet<Veiculos> Veiculos { get; set; }
+        public DbSet<Veiculos> Veiculos { get; set; }
         public DbSet<Impostos> Impostos{ get; set; }
 
         public RevendaCarrosContext(DbContextOptions<RevendaCarrosContext> options) :
@@ -18,6 +18,7 @@ namespace RevendaCarros.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ImpostosMap());
+            modelBuilder.ApplyConfiguration(new VeiculoMap());
 
             base.OnModelCreating(modelBuilder);
         }
