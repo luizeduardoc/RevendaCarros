@@ -9,6 +9,7 @@ namespace RevendaCarros.Domain
         public static IServiceCollection AddDomainServices(this IServiceCollection services)
         {
             services.AddTransient<IImpostoService, ImpostoService>();
+            services.AddTransient<IVeiculoService, VeiculoService>();
 
             return services;
         }

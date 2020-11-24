@@ -2,7 +2,7 @@
 
 namespace RevendaCarros.Domain.Entities
 {
-    [Table("vendass")]
+    [Table("vendas")]
     public class Vendas : IEntity
     {
         public int IdCarro { get; set; }
