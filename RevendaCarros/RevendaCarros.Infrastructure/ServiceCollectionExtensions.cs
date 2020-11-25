@@ -10,6 +10,7 @@ namespace RevendaCarros.Infrastructure
         {
             services.AddTransient<IImpostoRepository, ImpostoRepository>();
             services.AddTransient<IVeiculoRepository, VeiculoRepository>();
+            services.AddTransient<IVendaRepository, VendaRepository>();
 
             return services;
         }

@@ -17,16 +17,38 @@ namespace RevendaCarros.Domain.Services
             this.repository = repository;
         }
 
+        public IList<EstoqueDto> GetVendas()
+        {
+            var result = repository.GetVendas();
+            var novoEstoque = result.Select(x => new EstoqueDto(x.Placa,
+                                                                x.Cor,
+                                                                x.Preco,
+                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
+                                                                x.TipoOperacao)).ToList();
+
+            return novoEstoque;
+        }
+
+        public IList<EstoqueDto> GetAlugueis()
+        {
+            var result = repository.GetAlugueis();
+            var novoEstoque = result.Select(x => new EstoqueDto(x.Placa,
+                                                                x.Cor,
+                                                                x.Preco,
+                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
+                                                                x.TipoOperacao)).ToList();
+
+            return novoEstoque;
+        }
+
         public IList<EstoqueDto> GetAll()
         {
             var result = repository.GetAll();
-            var novoEstoque = result.Select(e => new EstoqueDto
-            {
-                Cor = e.Cor,
-                Placa = e.Placa,
-                Preco = e.Preco,
-                VeiculoTipo = Enum.GetName(typeof(TipoVeiculo), e.TipoVeiculo)
-            }).ToList();
+            var novoEstoque = result.Select(x => new EstoqueDto(x.Placa,
+                                                                x.Cor,
+                                                                x.Preco,
+                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
+                                                                x.TipoOperacao)).ToList();
 
             return novoEstoque;
         }

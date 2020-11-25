@@ -11,5 +11,7 @@ namespace RevendaCarros.Domain.Entities
         public string Cor { get; set; }
         public double Preco { get; set; }
         public TipoVeiculo TipoVeiculo { get; set; }
+        public string TipoOperacao { get; set; }        
+        public Vendas Venda { get; set; }
     }
 }

@@ -13,6 +13,20 @@ namespace RevendaCarros.Api.Controllers
             this.service = service;
         }
 
+        [HttpGet("vendas")]
+        public IActionResult GetVendas()
+        {
+            var result = service.GetVendas();
+            return Ok(result);
+        }
+
+        [HttpGet("alugueis")]
+        public IActionResult GetAlgueis()
+        {
+            var result = service.GetAlugueis();
+            return Ok(result);
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {
