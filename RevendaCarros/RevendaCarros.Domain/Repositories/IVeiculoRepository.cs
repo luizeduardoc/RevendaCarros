@@ -5,6 +5,8 @@ namespace RevendaCarros.Domain.Repositories
 {
     public interface IVeiculoRepository
     {
+        IList<Veiculos> GetVendas();
+        IList<Veiculos> GetAlugueis();
         IList<Veiculos> GetAll();
     }
 }

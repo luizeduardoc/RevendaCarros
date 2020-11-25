@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using RevendaCarros.Domain.Dtos;
 using RevendaCarros.Domain.Entities;
+using System.Collections.Generic;
 
 namespace RevendaCarros.Domain.Services.Interfaces
 {
     public interface IVendaService
     {
         IList<Vendas> GetAll();
+        Vendas Create(VendaDto vendaDto);
     }
 }

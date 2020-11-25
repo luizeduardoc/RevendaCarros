@@ -10,6 +10,7 @@ namespace RevendaCarros.Domain
         {
             services.AddTransient<IImpostoService, ImpostoService>();
             services.AddTransient<IVeiculoService, VeiculoService>();
+            services.AddTransient<IVendaService, VendaService>();
 
             return services;
         }
