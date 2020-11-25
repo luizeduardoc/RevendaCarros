@@ -5,7 +5,6 @@ using RevendaCarros.Domain.Entities;
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace RevendaCarros.Domain.Repositories
 {
     public interface IAluguelaRepository : IRepository<Alugueis>
