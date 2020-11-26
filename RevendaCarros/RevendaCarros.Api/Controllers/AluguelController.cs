@@ -17,7 +17,7 @@ namespace RevendaCarros.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = "ok";
+            var result = service.GetAll();
             return Ok(result);
         }
 

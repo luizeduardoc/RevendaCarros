@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LibraryManager.Domain.Repositories.Core;
 using RevendaCarros.Domain.Entities;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RevendaCarros.Domain.Repositories
 {
-    public interface IAluguelaRepository : IRepository<Alugueis>
+    public interface IAluguelRepository : IRepository<Alugueis>
     {
         IList<Alugueis> GetAll();
     }

@@ -5,7 +5,7 @@ namespace RevendaCarros.Infrastructure
 {
     public class RevendaCarrosContext : DbContext
     {
-        //public DbSet<Alugueis> Alugueis { get; set; }
+        public DbSet<Alugueis> Alugueis { get; set; }
         public DbSet<Vendas> Vendas { get; set; }
         public DbSet<Veiculos> Veiculos { get; set; }
         public DbSet<Impostos> Impostos{ get; set; }
@@ -20,6 +20,7 @@ namespace RevendaCarros.Infrastructure
             modelBuilder.ApplyConfiguration(new ImpostosMap());
             modelBuilder.ApplyConfiguration(new VeiculoMap());
             modelBuilder.ApplyConfiguration(new VendaMap());
+            modelBuilder.ApplyConfiguration(new AluguelMap());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -13,5 +13,6 @@ namespace RevendaCarros.Domain.Entities
         public TipoVeiculo TipoVeiculo { get; set; }
         public string TipoOperacao { get; set; }        
         public Vendas Venda { get; set; }
+        public Alugueis Aluguel { get; set; }
     }
 }

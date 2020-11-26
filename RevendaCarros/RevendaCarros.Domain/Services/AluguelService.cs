@@ -21,9 +21,9 @@ namespace RevendaCarros.Domain.Services
             return result;
         }
 
-        public Alugueis Create(AlugueisDto aluguelDto)
+        public Alugueis Create(AluguelDto aluguelDto)
         {
-            var novoVenda = new Alugueis(aluguelDto.IdVeiculo, aluguelDto.Valor, aluguelDto.NomeComprador, aluguelDto.DataRetirada, aluguelDto.DataEntrega);
+            var novoAluguel = new Alugueis(aluguelDto.IdVeiculo, aluguelDto.Valor, aluguelDto.NomeComprador, aluguelDto.DataRetirada, aluguelDto.DataEntrega);
             var result = repository.Insert(novoAluguel);
 
             return result;

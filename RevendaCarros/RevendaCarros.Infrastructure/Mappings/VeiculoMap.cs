@@ -24,6 +24,7 @@ namespace RevendaCarros.Infrastructure
             builder.HasKey(t => t.Id);
 
             builder.HasOne(t => t.Venda).WithOne(t => t.Veiculo).HasForeignKey<Vendas>(t => t.IdVeiculo);
+            builder.HasOne(t => t.Aluguel).WithOne(t => t.Veiculo).HasForeignKey<Alugueis>(t => t.IdVeiculo);
         }
     }
 }

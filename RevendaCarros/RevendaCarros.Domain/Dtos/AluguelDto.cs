@@ -1,3 +1,5 @@
+using System;
+
 namespace RevendaCarros.Domain.Dtos
 {
     public class AluguelDto
