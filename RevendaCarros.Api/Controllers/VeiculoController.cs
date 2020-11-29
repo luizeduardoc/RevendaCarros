@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RevendaCarros.Domain.Dtos;
 using RevendaCarros.Domain.Services.Interfaces;
 
 namespace RevendaCarros.Api.Controllers
@@ -31,6 +32,14 @@ namespace RevendaCarros.Api.Controllers
         public IActionResult GetAll()
         {
             var result = service.GetAll();
+            return Ok(result);
+        }
+
+        [HttpGet("filter")]
+        public IActionResult GetByQuery([FromQuery] VeiculoQueryDto queryFilter)
+        {
+            var result = service.FindByQuery(queryFilter);
+
             return Ok(result);
         }
     }

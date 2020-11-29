@@ -1,4 +1,5 @@
 ﻿using RevendaCarros.Domain.Dtos;
+using RevendaCarros.Domain.Entities;
 using RevendaCarros.Domain.Enums;
 using RevendaCarros.Domain.Repositories;
 using RevendaCarros.Domain.Services.Interfaces;
@@ -26,7 +27,9 @@ namespace RevendaCarros.Domain.Services
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
                                                                 x.TipoOperacao,
                                                                 x.ArCondicionado,
-                                                                x.Automatico)).ToList();
+                                                                x.Automatico,
+                                                                x.Marca,
+                                                                x.Modelo)).ToList();
 
             return novoEstoque;
         }
@@ -40,7 +43,9 @@ namespace RevendaCarros.Domain.Services
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
                                                                 x.TipoOperacao,
                                                                 x.ArCondicionado,
-                                                                x.Automatico)).ToList();
+                                                                x.Automatico,
+                                                                x.Marca,
+                                                                x.Modelo)).ToList();
 
             return novoEstoque;
         }
@@ -54,9 +59,18 @@ namespace RevendaCarros.Domain.Services
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
                                                                 x.TipoOperacao,
                                                                 x.ArCondicionado,
-                                                                x.Automatico)).ToList();
+                                                                x.Automatico,
+                                                                x.Marca,
+                                                                x.Modelo)).ToList();
 
             return novoEstoque;
+        }
+
+        public IList<Veiculo> FindByQuery(VeiculoQueryDto queryFilter)
+        {
+            var result = repository.FindByQuery(queryFilter);
+
+            return result;
         }
     }
 }
