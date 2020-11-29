@@ -16,7 +16,9 @@ namespace RevendaCarros.Infrastructure
 
             builder.Property(t => t.Id).HasColumnName("id").HasColumnType("INT").ValueGeneratedOnAdd();
             builder.Property(t => t.Cor).HasColumnName("cor").HasColumnType("VARCHAR(20)").IsRequired();
-            builder.Property(t => t.Placa).HasColumnName("placa").HasColumnType("CARCHAR(7)").IsRequired();
+            builder.Property(t => t.Marca).HasColumnName("marca").HasColumnType("VARCHAR(150)").IsRequired();
+            builder.Property(t => t.Modelo).HasColumnName("modelo").HasColumnType("VARCHAR(150)").IsRequired();
+            builder.Property(t => t.Placa).HasColumnName("placa").HasColumnType("VARCHAR(7)").IsRequired();
             builder.Property(t => t.Preco).HasColumnName("preco").HasColumnType("DECIMAL(9,2)").IsRequired();
             builder.Property(t => t.TipoVeiculo).HasColumnName("tipo").HasColumnType("NUMERIC(1)").IsRequired();
             builder.Property(t => t.ArCondicionado).HasColumnName("ar_condicionado").HasColumnType("BOOLEAN").IsRequired();
