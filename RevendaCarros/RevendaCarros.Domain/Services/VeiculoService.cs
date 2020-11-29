@@ -24,7 +24,9 @@ namespace RevendaCarros.Domain.Services
                                                                 x.Cor,
                                                                 x.Preco,
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
-                                                                x.TipoOperacao)).ToList();
+                                                                x.TipoOperacao,
+                                                                x.ArCondicionado,
+                                                                x.Automatico)).ToList();
 
             return novoEstoque;
         }
@@ -36,7 +38,9 @@ namespace RevendaCarros.Domain.Services
                                                                 x.Cor,
                                                                 x.Preco,
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
-                                                                x.TipoOperacao)).ToList();
+                                                                x.TipoOperacao,
+                                                                x.ArCondicionado,
+                                                                x.Automatico)).ToList();
 
             return novoEstoque;
         }
@@ -48,7 +52,9 @@ namespace RevendaCarros.Domain.Services
                                                                 x.Cor,
                                                                 x.Preco,
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
-                                                                x.TipoOperacao)).ToList();
+                                                                x.TipoOperacao,
+                                                                x.ArCondicionado,
+                                                                x.Automatico)).ToList();
 
             return novoEstoque;
         }
