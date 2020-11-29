@@ -6,24 +6,24 @@ using System.Linq;
 
 namespace RevendaCarros.Infrastructure.Repositories
 {
-    public class VeiculoRepository : Repository<Veiculos>, IVeiculoRepository
+    public class VeiculoRepository : Repository<Veiculo>, IVeiculoRepository
     {
         public VeiculoRepository(RevendaCarrosContext context)
             : base(context)
         {
         }
 
-        public IList<Veiculos> GetVendas()
+        public IList<Veiculo> GetVendas()
         {            
             return Query().Where(x => x.TipoOperacao.Equals("Venda")).ToList();
         }
 
-        public IList<Veiculos> GetAlugueis()
+        public IList<Veiculo> GetAlugueis()
         {
             return Query().Where(x => x.TipoOperacao.Equals("Aluguel")).ToList();
         }
 
-        public IList<Veiculos> GetAll()
+        public IList<Veiculo> GetAll()
         {
             return Query().ToList();
         }

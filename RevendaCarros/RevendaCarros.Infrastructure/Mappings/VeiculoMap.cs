@@ -5,9 +5,9 @@ using System;
 
 namespace RevendaCarros.Infrastructure
 {
-    public sealed class VeiculoMap : IEntityTypeConfiguration<Veiculos>
+    public sealed class VeiculoMap : IEntityTypeConfiguration<Veiculo>
     {
-        public void Configure(EntityTypeBuilder<Veiculos> builder)
+        public void Configure(EntityTypeBuilder<Veiculo> builder)
         {
             if (builder == null)
             {
@@ -23,7 +23,7 @@ namespace RevendaCarros.Infrastructure
 
             builder.HasKey(t => t.Id);
 
-            builder.HasOne(t => t.Venda).WithOne(t => t.Veiculo).HasForeignKey<Vendas>(t => t.IdVeiculo);
+            builder.HasOne(t => t.Venda).WithOne(t => t.Veiculo).HasForeignKey<Venda>(t => t.IdVeiculo);
         }
     }
 }

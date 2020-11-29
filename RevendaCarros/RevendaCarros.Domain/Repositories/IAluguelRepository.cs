@@ -8,8 +8,8 @@ using System.Text;
 
 namespace RevendaCarros.Domain.Repositories
 {
-    public interface IAluguelaRepository : IRepository<Alugueis>
+    public interface IAluguelaRepository : IRepository<Aluguel>
     {
-        IList<Alugueis> GetAll();
+        IList<Aluguel> GetAll();
     }
 }

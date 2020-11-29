@@ -5,6 +5,6 @@ namespace RevendaCarros.Domain.Services.Interfaces
 {
     public interface IImpostoService
     {
-        IList<Impostos> GetAll();
+        IList<Imposto> GetAll();
     }
 }

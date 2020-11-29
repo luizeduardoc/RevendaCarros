@@ -6,9 +6,9 @@ namespace RevendaCarros.Infrastructure
     public class RevendaCarrosContext : DbContext
     {
         //public DbSet<Alugueis> Alugueis { get; set; }
-        public DbSet<Vendas> Vendas { get; set; }
-        public DbSet<Veiculos> Veiculos { get; set; }
-        public DbSet<Impostos> Impostos{ get; set; }
+        public DbSet<Venda> Vendas { get; set; }
+        public DbSet<Veiculo> Veiculos { get; set; }
+        public DbSet<Imposto> Impostos{ get; set; }
 
         public RevendaCarrosContext(DbContextOptions<RevendaCarrosContext> options) :
             base(options)

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace RevendaCarros.Domain.Entities
 {
     [Table("alugueis")]
-    public class Alugueis : IEntity
+    public class Aluguel : IEntity
     {
         public int Id { get; set; }
         public int IdCarro { get; set; }

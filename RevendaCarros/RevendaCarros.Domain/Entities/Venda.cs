@@ -3,9 +3,9 @@
 namespace RevendaCarros.Domain.Entities
 {
     [Table("vendas")]
-    public class Vendas : IEntity
+    public class Venda : IEntity
     {
-        public Vendas(int idVeiculo, double valor, string nomeComprador)
+        public Venda(int idVeiculo, double valor, string nomeComprador)
         {
             IdVeiculo = idVeiculo;
             Valor = valor;
@@ -17,7 +17,7 @@ namespace RevendaCarros.Domain.Entities
         public string NomeComprador { get; set; }
         [ForeignKey("id_veiculo")]
         public int IdVeiculo { get; set; }
-        public Veiculos Veiculo { get; set; }
+        public Veiculo Veiculo { get; set; }
 
     }
 }
