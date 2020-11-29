@@ -10,6 +10,8 @@ namespace RevendaCarros.Domain.Entities
         public string Placa { get; set; }
         public string Cor { get; set; }
         public double Preco { get; set; }
+        public bool ArCondicionado { get; set; }
+        public bool Automatico { get; set; }
         public TipoVeiculo TipoVeiculo { get; set; }
         public string TipoOperacao { get; set; }        
         public Vendas Venda { get; set; }
