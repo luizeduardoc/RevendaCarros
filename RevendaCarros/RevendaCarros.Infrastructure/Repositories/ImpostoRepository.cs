@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace RevendaCarros.Infrastructure.Repositories
 {
-    public class ImpostoRepository : Repository<Impostos>, IImpostoRepository
+    public class ImpostoRepository : Repository<Imposto>, IImpostoRepository
     {
         public ImpostoRepository(RevendaCarrosContext context)
             : base(context)
         {
         }
 
-        public IList<Impostos> GetAll()
+        public IList<Imposto> GetAll()
         {
             return Query().ToList();
         }

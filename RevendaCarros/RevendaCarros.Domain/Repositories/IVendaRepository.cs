@@ -7,8 +7,8 @@ using System.Text;
 
 namespace RevendaCarros.Domain.Repositories
 {
-    public interface IVendaRepository : IRepository<Vendas>
+    public interface IVendaRepository : IRepository<Venda>
     {
-        IList<Vendas> GetAll();
+        IList<Venda> GetAll();
     }
 }

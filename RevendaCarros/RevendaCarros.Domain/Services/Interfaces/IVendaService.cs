@@ -6,7 +6,7 @@ namespace RevendaCarros.Domain.Services.Interfaces
 {
     public interface IVendaService
     {
-        IList<Vendas> GetAll();
-        Vendas Create(VendaDto vendaDto);
+        IList<Venda> GetAll();
+        Venda Create(VendaDto vendaDto);
     }
 }

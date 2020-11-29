@@ -5,6 +5,6 @@ namespace RevendaCarros.Domain.Services.Interfaces
 {
     public interface IAluguelService
     {
-        IList<Alugueis> GetAll();
+        IList<Aluguel> GetAll();
     }
 }

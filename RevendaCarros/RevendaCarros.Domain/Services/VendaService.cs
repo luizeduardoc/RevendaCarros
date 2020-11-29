@@ -15,15 +15,15 @@ namespace RevendaCarros.Domain.Services
             this.repository = repository;
         }
 
-        public IList<Vendas> GetAll()
+        public IList<Venda> GetAll()
         {
             var result = repository.GetAll();
             return result;
         }
 
-        public Vendas Create(VendaDto vendaDto)
+        public Venda Create(VendaDto vendaDto)
         {
-            var novaVenda = new Vendas(vendaDto.IdVeiculo, vendaDto.Valor, vendaDto.NomeComprador);
+            var novaVenda = new Venda(vendaDto.IdVeiculo, vendaDto.Valor, vendaDto.NomeComprador);
             var result = repository.Insert(novaVenda);
 
             return result;

@@ -5,9 +5,9 @@ using System;
 
 namespace RevendaCarros.Infrastructure
 {
-    public sealed class VendaMap : IEntityTypeConfiguration<Vendas>
+    public sealed class VendaMap : IEntityTypeConfiguration<Venda>
     {
-        public void Configure(EntityTypeBuilder<Vendas> builder)
+        public void Configure(EntityTypeBuilder<Venda> builder)
         {
             if (builder == null)
             {

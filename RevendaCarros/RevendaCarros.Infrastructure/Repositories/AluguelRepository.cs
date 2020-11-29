@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace RevendaCarros.Infrastructure.Repositories
 {
-    public class AluguelRepository : Repository<Alugueis>, IAluguelaRepository
+    public class AluguelRepository : Repository<Aluguel>, IAluguelaRepository
     {
         public AluguelRepository(RevendaCarrosContext context) : base(context)
         {
         }
-        public IList<Alugueis> GetAll()
+        public IList<Aluguel> GetAll()
         {
             return Query().ToList();
         }

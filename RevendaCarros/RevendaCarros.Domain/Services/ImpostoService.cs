@@ -14,7 +14,7 @@ namespace RevendaCarros.Domain.Services
             this.repository = repository;
         }
 
-        public IList<Impostos> GetAll()
+        public IList<Imposto> GetAll()
         {
             return repository.GetAll();
         }
