@@ -23,6 +23,7 @@ namespace RevendaCarros.Infrastructure
             builder.Property(t => t.TipoVeiculo).HasColumnName("tipo").HasColumnType("NUMERIC(1)").IsRequired();
             builder.Property(t => t.ArCondicionado).HasColumnName("ar_condicionado").HasColumnType("BOOLEAN").IsRequired();
             builder.Property(t => t.Automatico).HasColumnName("automatico").HasColumnType("BOOLEAN").IsRequired();
+            builder.Property(t => t.Disponivel).HasColumnName("disponivel").HasColumnType("BOOLEAN").IsRequired().HasDefaultValue(true);
             builder.Property(t => t.TipoOperacao).HasColumnName("tipo_operacao").HasColumnType("VARCHAR(10)").IsRequired();
 
             builder.HasKey(t => t.Id);

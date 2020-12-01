@@ -11,5 +11,7 @@ namespace RevendaCarros.Domain.Repositories
         IList<Veiculo> GetAll();
         IList<Veiculo> FindByQuery(VeiculoQueryDto queryFilter);
         Veiculo Create(Veiculo veiculo);
+        Veiculo GetById(int id);
+        Veiculo UpdateVeiculo(Veiculo veiculo);
     }
 }

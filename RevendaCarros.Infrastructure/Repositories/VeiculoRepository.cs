@@ -77,5 +77,17 @@ namespace RevendaCarros.Infrastructure.Repositories
             var result = Insert(veiculo);
             return result;
         }
+
+        public Veiculo GetById(int id)
+        {
+            var result = Query().Where(v => v.Id == id).FirstOrDefault();
+            return result;
+        }
+
+        public Veiculo UpdateVeiculo(Veiculo veiculo)
+        {
+            var result = Update(veiculo);
+            return result;
+        }
     }
 }
