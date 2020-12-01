@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace LibraryManager.Domain.Repositories.Core
+namespace RevendaCarros.Domain.Repositories
 {
     public interface IRepository<TEntity> : IDisposable
     {

@@ -23,9 +23,7 @@ namespace RevendaCarros.Domain.Services
 
         public Venda Create(VendaDto vendaDto)
         {
-            var novaVenda = new Venda(vendaDto.IdVeiculo, vendaDto.Valor, vendaDto.NomeComprador);
-            var result = repository.Insert(novaVenda);
-
+            var result = repository.Create(vendaDto);
             return result;
         }
     }
