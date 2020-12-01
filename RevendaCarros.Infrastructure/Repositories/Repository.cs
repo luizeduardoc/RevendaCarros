@@ -30,6 +30,19 @@ namespace RevendaCarros.Infrastructure.Repositories
             return entity;
         }
 
+        public TEntity Update(TEntity entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            dbSet.Update(entity);
+            Commit();
+
+            return entity;
+        }
+
         public IQueryable<TEntity> Query()
         {
             return dbSet.AsNoTracking();

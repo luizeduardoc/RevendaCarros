@@ -16,5 +16,10 @@ namespace RevendaCarros.Infrastructure.Repositories
         {
             return Query().ToList();
         }
+
+        public Imposto Get(string name)
+        {
+            return Query().Where(i => i.Nome.Equals(name)).SingleOrDefault();
+        }
     }
 }

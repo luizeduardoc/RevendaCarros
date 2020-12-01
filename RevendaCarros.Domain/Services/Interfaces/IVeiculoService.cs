@@ -10,5 +10,7 @@ namespace RevendaCarros.Domain.Services.Interfaces
         IList<EstoqueDto> GetAlugueis();
         IList<EstoqueDto> GetAll();
         IList<Veiculo> FindByQuery(VeiculoQueryDto queryFilter);
+        Veiculo Create(CreateVeiculoDto veiculo);
+        Veiculo GetById(int id);
     }
 }

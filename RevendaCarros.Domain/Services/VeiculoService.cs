@@ -21,15 +21,7 @@ namespace RevendaCarros.Domain.Services
         public IList<EstoqueDto> GetVendas()
         {
             var result = repository.GetVendas();
-            var novoEstoque = result.Select(x => new EstoqueDto(x.Placa,
-                                                                x.Cor,
-                                                                x.Preco,
-                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
-                                                                x.TipoOperacao,
-                                                                x.ArCondicionado,
-                                                                x.Automatico,
-                                                                x.Marca,
-                                                                x.Modelo)).ToList();
+            var novoEstoque = CreateNovoEstoque(result);
 
             return novoEstoque;
         }
@@ -37,15 +29,7 @@ namespace RevendaCarros.Domain.Services
         public IList<EstoqueDto> GetAlugueis()
         {
             var result = repository.GetAlugueis();
-            var novoEstoque = result.Select(x => new EstoqueDto(x.Placa,
-                                                                x.Cor,
-                                                                x.Preco,
-                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
-                                                                x.TipoOperacao,
-                                                                x.ArCondicionado,
-                                                                x.Automatico,
-                                                                x.Marca,
-                                                                x.Modelo)).ToList();
+            var novoEstoque = CreateNovoEstoque(result);
 
             return novoEstoque;
         }
@@ -53,15 +37,7 @@ namespace RevendaCarros.Domain.Services
         public IList<EstoqueDto> GetAll()
         {
             var result = repository.GetAll();
-            var novoEstoque = result.Select(x => new EstoqueDto(x.Placa,
-                                                                x.Cor,
-                                                                x.Preco,
-                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
-                                                                x.TipoOperacao,
-                                                                x.ArCondicionado,
-                                                                x.Automatico,
-                                                                x.Marca,
-                                                                x.Modelo)).ToList();
+            var novoEstoque = CreateNovoEstoque(result);
 
             return novoEstoque;
         }
@@ -71,6 +47,34 @@ namespace RevendaCarros.Domain.Services
             var result = repository.FindByQuery(queryFilter);
 
             return result;
+        }
+
+        public Veiculo Create(CreateVeiculoDto veiculo)
+        {            
+            var result = repository.Create(veiculo);
+            return result;
+        }
+
+        public Veiculo GetById(int id)
+        {
+            var result = repository.GetById(id);
+            return result;
+        }
+
+        private IList<EstoqueDto> CreateNovoEstoque(IList<Veiculo> veiculo)
+        {
+            var novoEstoque = veiculo.Select(x => new EstoqueDto(x.Placa,
+                                                                x.Cor,
+                                                                x.Preco,
+                                                                Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),
+                                                                x.TipoOperacao,
+                                                                x.ArCondicionado,
+                                                                x.Automatico,
+                                                                x.Marca,
+                                                                x.Modelo,
+                                                                x.Disponivel)).ToList();
+
+            return novoEstoque;
         }
     }
 }

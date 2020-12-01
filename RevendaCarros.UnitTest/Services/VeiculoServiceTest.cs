@@ -26,19 +26,7 @@ namespace RevendaCarros.UnitTest.Services
         {
             service = new VeiculoService(veiculoRepository);
 
-            veiculo = new Veiculo
-            {
-                Id = 0,
-                Placa = "IKG6861",
-                Cor = "Verde",
-                Preco = 100.00,
-                ArCondicionado = true,
-                Automatico = true,
-                Marca = "Hyundai",
-                Modelo = "HB20",
-                TipoOperacao = "Venda",
-                TipoVeiculo = TipoVeiculo.Carro
-            };
+            veiculo = new Veiculo("IKG6861", "Verde", 100.00, true, true, "Hyundai", "HB20", TipoVeiculo.Carro, "Venda");            
 
             listaVeiculo = new List<Veiculo> { veiculo };
 
@@ -50,7 +38,8 @@ namespace RevendaCarros.UnitTest.Services
                                           veiculo.ArCondicionado,
                                           veiculo.Automatico,
                                           veiculo.Marca,
-                                          veiculo.Modelo);
+                                          veiculo.Modelo,
+                                          veiculo.Disponivel);
 
             expected = new List<EstoqueDto> { estoque };
         }
@@ -110,6 +99,48 @@ namespace RevendaCarros.UnitTest.Services
             // Assert
             result.Should().Equals(expected);
             veiculoRepository.Received().GetAlugueis();
+        }
+
+        [TestMethod]
+        public void CreateShouldReturnVeiculo()
+        {
+            // Arrange
+            var createVeiculoDto = new CreateVeiculoDto
+            {
+                ArCondicionado = true,
+                Automatico = true,
+                Cor = "Verde",
+                Marca = "Hyundai",
+                Modelo = "HB20",
+                Placa = "IKG6861",
+                Preco = 100.00,
+                TipoOperacao = "Venda",
+                TipoVeiculo = TipoVeiculo.Carro
+            };
+            
+            var result = veiculoRepository.Create(createVeiculoDto).Returns(veiculo);
+
+            // Act
+            service.Create(createVeiculoDto);
+
+            // Assert
+            result.Should().Equals(result);
+            result.Should().NotBeNull();
+            veiculoRepository.Received().Create(createVeiculoDto);
+        }
+
+        [TestMethod]
+        public void GetByIdShouldReturnVeiculo()
+        {
+            // Arrange
+            var id = 1;
+            veiculoRepository.GetById(id).Returns(veiculo);
+
+            // Act
+            service.GetById(id);
+
+            // Assert
+            veiculoRepository.Received().GetById(id);
         }
     }
 }

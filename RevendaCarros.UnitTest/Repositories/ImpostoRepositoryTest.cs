@@ -41,5 +41,30 @@ namespace RevendaCarros.UnitTest.Repositories
             result.Should().NotBeNull();
             result.Should().NotBeEmpty();
         }
+
+        [TestMethod]
+        public void GetShouldReturnImposto()
+        {
+            // Arrange
+            var nomeImposto = "NomeImposto";
+            var imposto = new List<Imposto>
+            {
+                new Imposto
+                {
+                    Descricao = "Descricao imposto",
+                    Nome = "NomeImposto",
+                    Valor = 10000
+                }
+            };
+
+            AddRange(imposto);
+
+            // Act
+            var result = repository.Get(nomeImposto);
+
+            // Assert
+            result.Should().Equals(imposto);
+            result.Should().NotBeNull();
+        }
     }
 }

@@ -16,12 +16,12 @@ namespace RevendaCarros.Infrastructure.Repositories
 
         public IList<Veiculo> GetVendas()
         {            
-            return Query().Where(x => x.TipoOperacao.Equals("Venda")).ToList();
+            return Query().Where(x => x.TipoOperacao.Equals("Venda")).Where(x => x.Disponivel == true).ToList();
         }
 
         public IList<Veiculo> GetAlugueis()
         {
-            return Query().Where(x => x.TipoOperacao.Equals("Aluguel")).ToList();
+            return Query().Where(x => x.TipoOperacao.Equals("Aluguel")).Where(x => x.Disponivel == true).ToList();
         }
 
         public IList<Veiculo> GetAll()
@@ -70,6 +70,34 @@ namespace RevendaCarros.Infrastructure.Repositories
             }              
 
             return query.ToList();
+        }
+
+        public Veiculo Create(CreateVeiculoDto veiculo)
+        {
+            var novoVeiculo = new Veiculo(veiculo.Placa,
+                                          veiculo.Cor,
+                                          veiculo.Preco,
+                                          veiculo.ArCondicionado,
+                                          veiculo.Automatico,
+                                          veiculo.Marca,
+                                          veiculo.Modelo,
+                                          veiculo.TipoVeiculo,
+                                          veiculo.TipoOperacao);
+
+            var result = Insert(novoVeiculo);
+            return result;
+        }
+
+        public Veiculo GetById(int id)
+        {
+            var result = Query().Where(v => v.Id == id).FirstOrDefault();
+            return result;
+        }
+
+        public Veiculo UpdateVeiculo(Veiculo veiculo)
+        {
+            var result = Update(veiculo);
+            return result;
         }
     }
 }
