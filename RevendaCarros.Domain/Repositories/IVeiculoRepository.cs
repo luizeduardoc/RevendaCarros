@@ -10,7 +10,7 @@ namespace RevendaCarros.Domain.Repositories
         IList<Veiculo> GetAlugueis();
         IList<Veiculo> GetAll();
         IList<Veiculo> FindByQuery(VeiculoQueryDto queryFilter);
-        Veiculo Create(Veiculo veiculo);
+        Veiculo Create(CreateVeiculoDto veiculo);
         Veiculo GetById(int id);
         Veiculo UpdateVeiculo(Veiculo veiculo);
     }

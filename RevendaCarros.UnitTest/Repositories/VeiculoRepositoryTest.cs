@@ -150,5 +150,73 @@ namespace RevendaCarros.UnitTest.Repositories
             result.Should().Equals(listaVeiculos);
             query.Should().BeNull();
         }
+
+        [TestMethod]
+        public void CreateShouldReturnVeiculo()
+        {
+            // Arrange
+            var veiculoDto = new CreateVeiculoDto
+            {
+                ArCondicionado = true,
+                Automatico = true,
+                Cor = "Azul",
+                Marca = "Fiat",
+                Modelo = "Uno",
+                Placa = "ASD3245",
+                Preco = 10000.00,
+                TipoOperacao = "Venda",
+                TipoVeiculo = TipoVeiculo.Caminhao
+            };
+
+            var veiculo = new Veiculo("ASD3245","Azul", 10000.00, true, true, "Fiat", "Uno", TipoVeiculo.Caminhao, "Venda");            
+
+            // Act
+            var result = repository.Create(veiculoDto);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().Equals(veiculo);
+        }
+
+        [TestMethod]
+        public void GetByIdShouldReturnVeiculo()
+        {
+            // Arrange
+            var id = 1;
+            var veiculo = new List<Veiculo> 
+            {
+                new Veiculo("ASD3245", "Azul", 10000.00, true, true, "Fiat", "Uno", TipoVeiculo.Caminhao, "Venda")
+            };
+
+            AddRange(veiculo);
+
+            // Act
+            var result = repository.GetById(id);
+
+            // Assert
+            result.Should().Equals(veiculo);
+            result.Should().NotBeNull();            
+        }
+
+        [TestMethod]
+        public void UpdateVeiculoShouldUpdateExistingVeiculo()
+        {
+            // Arrange
+            var veiculo = new List<Veiculo>
+            {
+                new Veiculo("ASD3245", "Azul", 10000.00, true, true, "Fiat", "Uno", TipoVeiculo.Caminhao, "Venda")
+            };
+
+            AddRange(veiculo);
+
+            var veiculoModificado = new Veiculo("AFE3245", "Verde", 10000.00, false, true, "Fiat", "Uno", TipoVeiculo.Caminhao, "Venda");
+
+            // Act
+            var result = repository.UpdateVeiculo(veiculoModificado);
+
+            // Assert
+            result.Should().Equals(veiculoModificado);
+            result.Should().NotBe(veiculo);
+        }
     }
 }
