@@ -6,5 +6,6 @@ namespace RevendaCarros.Domain.Repositories
     public interface IImpostoRepository : IRepository<Imposto>
     {
         IList<Imposto> GetAll();
+        Imposto Get(string name);
     }
 }

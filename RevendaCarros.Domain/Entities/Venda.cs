@@ -13,11 +13,17 @@ namespace RevendaCarros.Domain.Entities
         }
 
         public int Id { get; set; }
-        public double Valor { get; set; }
+        public double Valor { get; private set; }
         public string NomeComprador { get; set; }
         [ForeignKey("id_veiculo")]
         public int IdVeiculo { get; set; }
         public Veiculo Veiculo { get; set; }
+
+        public double AddValor(double valor)
+        {
+            Valor += valor;
+            return Valor;
+        }
 
     }
 }
