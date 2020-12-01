@@ -1,5 +1,4 @@
-﻿using LibraryManager.Infrastructure.Core;
-using RevendaCarros.Domain.Dtos;
+﻿using RevendaCarros.Domain.Dtos;
 using RevendaCarros.Domain.Entities;
 using RevendaCarros.Domain.Repositories;
 using System;

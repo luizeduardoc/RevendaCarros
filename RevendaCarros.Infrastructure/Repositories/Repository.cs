@@ -1,11 +1,10 @@
-﻿using LibraryManager.Domain.Repositories.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RevendaCarros.Domain.Entities;
-using RevendaCarros.Infrastructure;
+using RevendaCarros.Domain.Repositories;
 using System;
 using System.Linq;
 
-namespace LibraryManager.Infrastructure.Core
+namespace RevendaCarros.Infrastructure.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {

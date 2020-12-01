@@ -1,5 +1,5 @@
-﻿using LibraryManager.Infrastructure.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using RevendaCarros.Domain.Dtos;
 using RevendaCarros.Domain.Entities;
 using RevendaCarros.Domain.Repositories;
 using System.Collections.Generic;
@@ -16,6 +16,14 @@ namespace RevendaCarros.Infrastructure.Repositories
         public IList<Venda> GetAll()
         {
             return Query().Include(v => v.Veiculo).ToList();
+        }
+
+        public Venda Create(VendaDto vendaDto)
+        {
+            var novaVenda = new Venda(vendaDto.IdVeiculo, vendaDto.Valor, vendaDto.NomeComprador);
+            var result = Insert(novaVenda);
+
+            return result;
         }
     }
 }
