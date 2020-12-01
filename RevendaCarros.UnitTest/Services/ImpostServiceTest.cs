@@ -5,9 +5,7 @@ using RevendaCarros.Domain.Entities;
 using RevendaCarros.Domain.Repositories;
 using RevendaCarros.Domain.Services;
 using RevendaCarros.Domain.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace RevendaCarros.UnitTest.Services
 {
