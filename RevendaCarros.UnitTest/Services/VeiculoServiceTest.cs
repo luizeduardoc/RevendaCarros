@@ -38,7 +38,8 @@ namespace RevendaCarros.UnitTest.Services
                                           veiculo.ArCondicionado,
                                           veiculo.Automatico,
                                           veiculo.Marca,
-                                          veiculo.Modelo);
+                                          veiculo.Modelo,
+                                          veiculo.Disponivel);
 
             expected = new List<EstoqueDto> { estoque };
         }

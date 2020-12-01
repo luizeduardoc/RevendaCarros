@@ -16,12 +16,12 @@ namespace RevendaCarros.Infrastructure.Repositories
 
         public IList<Veiculo> GetVendas()
         {            
-            return Query().Where(x => x.TipoOperacao.Equals("Venda")).ToList();
+            return Query().Where(x => x.TipoOperacao.Equals("Venda")).Where(x => x.Disponivel == true).ToList();
         }
 
         public IList<Veiculo> GetAlugueis()
         {
-            return Query().Where(x => x.TipoOperacao.Equals("Aluguel")).ToList();
+            return Query().Where(x => x.TipoOperacao.Equals("Aluguel")).Where(x => x.Disponivel == true).ToList();
         }
 
         public IList<Veiculo> GetAll()

@@ -12,7 +12,8 @@ namespace RevendaCarros.Domain.Dtos
                           bool arCondicionado,
                           bool automatico,
                           string marca,
-                          string modelo)
+                          string modelo,
+                          bool disponivel)
         {
             Placa = placa;
             Cor = cor;
@@ -23,6 +24,7 @@ namespace RevendaCarros.Domain.Dtos
             Automatico = automatico;
             Marca = marca;
             Modelo = modelo;
+            Disponivel = disponivel;
         }
 
         public string Placa { get; set; }
@@ -33,6 +35,7 @@ namespace RevendaCarros.Domain.Dtos
         public bool ArCondicionado { get; set; }
         public bool Automatico { get; set; }
         public string Marca { get; set; }
+        public bool Disponivel { get; set; }
         public string Modelo { get; set; }
     }
 }
