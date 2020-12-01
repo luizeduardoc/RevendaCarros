@@ -5,7 +5,7 @@ using System;
 
 namespace RevendaCarros.Infrastructure
 {
-    public sealed class ImpostosMap : IEntityTypeConfiguration<Imposto>
+    public sealed class ImpostoMap : IEntityTypeConfiguration<Imposto>
     {
         public void Configure(EntityTypeBuilder<Imposto> builder)
         {

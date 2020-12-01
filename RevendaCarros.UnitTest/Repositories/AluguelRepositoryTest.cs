@@ -4,12 +4,13 @@ using RevendaCarros.Domain.Dtos;
 using RevendaCarros.Domain.Entities;
 using RevendaCarros.Domain.Enums;
 using RevendaCarros.Infrastructure.Repositories;
+using System;
 using System.Collections.Generic;
 
 namespace RevendaCarros.UnitTest.Repositories
 {
     [TestClass]
-    class AluguelRepositoryTest : BaseRepositoryTest
+    public class AluguelRepositoryTest : BaseRepositoryTest
     {
         private AluguelRepository repository;
 
@@ -22,38 +23,20 @@ namespace RevendaCarros.UnitTest.Repositories
         [TestMethod]
         public void GetAllShouldReturnAluguelList()
         {
-            //Arrange
-            var veiculo = new List<Veiculo>
+            //Arrange            
+            var listaAlugueis = new List<Aluguel>
             {
-                new Veiculo
-                {
-                    Id = 1,                 //ver como eh aluguel
-                    Placa = "IKG6861",
-                    Cor = "Verde",
-                    Preco = 100.00,
-                    ArCondicionado = true,
-                    Automatico = true,
-                    Marca = "Hyundai",
-                    Modelo = "HB20",
-                    TipoOperacao = "Aluguel",
-                    TipoVeiculo = TipoVeiculo.Carro
-                }
-            };
-            AddRange(veiculo);
-
-            var listaAluguel = new List<Aluguel>
-            {
-                new Aluguel(10, 100, "Comprador", 12/12/2020, 15/01/2021) //corrigir aqui   
+                new Aluguel(1, 1000, "Nome", DateTime.Now, DateTime.Now)
             };
 
-            AddRange(listaAluguel);
+            AddRange(listaAlugueis);
 
             //Act
             var result = repository.GetAll();
 
             //Assert
             result.Should().NotBeEmpty();
-            result.Should().Equals(result);
+            result.Should().Equals(listaAlugueis);
         }
 
         [TestMethod]
@@ -62,17 +45,17 @@ namespace RevendaCarros.UnitTest.Repositories
             //Arrange
             var aluguelDto = new AluguelDto
             {
-                IdVeiculo = 10,              //corrigir aqui   
+                IdVeiculo = 10,   
                 ValorMensal = 100,
                 Nome = "Comprador",
-                DataDevolucao = 12 / 12 / 2020,
-                DataRetirada = 15 / 01 / 2021
+                DataEntrega = DateTime.Now,
+                DataRetirada = DateTime.Now
             };
 
-            var aluguel = new Aluguel(10, 100, "Comprador", 12 / 12 / 2020, 15 / 01 / 2021); //corrigir aqui 
+            var aluguel = new Aluguel(10, 100, "Comprador", DateTime.Now, DateTime.Now);
 
             //Act
-            var result = repository.Create(aluguelDto);
+            var result = repository.CreateAluguel(aluguelDto);
 
             //Assert
             result.Should().NotBeNull();

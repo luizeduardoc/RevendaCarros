@@ -13,5 +13,6 @@ namespace RevendaCarros.Domain.Repositories
         Veiculo Create(CreateVeiculoDto veiculo);
         Veiculo GetById(int id);
         Veiculo UpdateVeiculo(Veiculo veiculo);
+        Veiculo GetByPlaca(string placa);
     }
 }

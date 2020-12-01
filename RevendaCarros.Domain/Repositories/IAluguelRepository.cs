@@ -5,9 +5,9 @@ using RevendaCarros.Domain.Dtos;
 
 namespace RevendaCarros.Domain.Repositories
 {
-    public interface IAluguelaRepository : IRepository<Aluguel>
+    public interface IAluguelRepository : IRepository<Aluguel>
     {
         IList<Aluguel> GetAll();
-        Aluguel Create(AluguelDto vendaDto);
+        Aluguel CreateAluguel(AluguelDto aluguelDto);
     }
 }

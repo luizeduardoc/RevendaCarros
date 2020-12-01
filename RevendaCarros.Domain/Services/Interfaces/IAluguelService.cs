@@ -8,5 +8,6 @@ namespace RevendaCarros.Domain.Services.Interfaces
     {
         IList<Aluguel> GetAll();
         Aluguel Create(AluguelDto aluguelDto);
+        Veiculo DevolveVeiculo(string placa);
     }
 }

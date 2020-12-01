@@ -32,7 +32,7 @@ namespace RevendaCarros.Domain.Services
         {
             var veiculo = veiculoRepository.GetById(vendaDto.IdVeiculo);
 
-            if (veiculo.TipoOperacao.Equals("Venda"))
+            if (veiculo.TipoOperacao.Equals("Venda") && veiculo.Disponivel)
             {
                 var result = repository.Create(vendaDto);
                 var imposto = 0.0;
@@ -46,7 +46,7 @@ namespace RevendaCarros.Domain.Services
                 }
 
                 result.AddValor(imposto);
-                veiculo.VendeCarro();
+                veiculo.ChangeDisponibilidade();
                 veiculoRepository.UpdateVeiculo(veiculo);
                 return result;
             }
