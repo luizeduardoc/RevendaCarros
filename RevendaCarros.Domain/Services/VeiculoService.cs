@@ -88,5 +88,11 @@ namespace RevendaCarros.Domain.Services
             var result = repository.Create(novoVeiculo);
             return result;
         }
+
+        public Veiculo GetById(int id)
+        {
+            var result = repository.GetById(id);
+            return result;
+        }
     }
 }

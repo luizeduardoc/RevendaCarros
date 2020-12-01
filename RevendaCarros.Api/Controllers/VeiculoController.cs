@@ -48,5 +48,12 @@ namespace RevendaCarros.Api.Controllers
             var result = service.Create(veiculo);
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var result = service.GetById(id);
+            return Ok(result);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using RevendaCarros.Domain.Entities;
 using RevendaCarros.Domain.Repositories;
 using RevendaCarros.Domain.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace RevendaCarros.Domain.Services
@@ -10,11 +11,15 @@ namespace RevendaCarros.Domain.Services
     {
         private readonly IVendaRepository repository;
         private readonly IImpostoRepository impostoRepository;
+        private readonly IVeiculoRepository veiculoRepository;
 
-        public VendaService(IVendaRepository repository, IImpostoRepository impostoRepository)
+        public VendaService(IVendaRepository repository,
+                            IImpostoRepository impostoRepository,
+                            IVeiculoRepository veiculoRepository)
         {
             this.repository = repository;
             this.impostoRepository = impostoRepository;
+            this.veiculoRepository = veiculoRepository;
         }
 
         public IList<Venda> GetAll()
@@ -25,19 +30,30 @@ namespace RevendaCarros.Domain.Services
 
         public Venda Create(VendaDto vendaDto)
         {
-            var result = repository.Create(vendaDto);
-            var imposto = 0.0;
-            if(result.Valor > 300000.00)
+            var veiculo = veiculoRepository.GetById(vendaDto.IdVeiculo);
+
+            if (veiculo.TipoOperacao.Equals("Venda"))
             {
-                imposto = impostoRepository.Get("ImpostoAltoValor").Valor;
+                var result = repository.Create(vendaDto);
+                var imposto = 0.0;
+                if (result.Valor > 300000.00)
+                {
+                    imposto = impostoRepository.Get("ImpostoAltoValor").Valor;
+                }
+                else
+                {
+                    imposto = impostoRepository.Get("ImpostoBaixoValor").Valor;
+                }
+
+                result.AddValor(imposto);
+                veiculo.VendeCarro();
+                veiculoRepository.UpdateVeiculo(veiculo);
+                return result;
             }
             else
             {
-                imposto = impostoRepository.Get("ImpostoBaixoValor").Valor;
+                throw new InvalidOperationException();
             }
-            
-            result.AddValor(imposto);
-            return result;
         }
     }
 }

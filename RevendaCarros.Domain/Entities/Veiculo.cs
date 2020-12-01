@@ -25,6 +25,7 @@ namespace RevendaCarros.Domain.Entities
             Modelo = modelo;
             TipoVeiculo = tipoVeiculo;
             TipoOperacao = tipoOperacao;
+            Disponivel = true;
         }
 
         public int Id { get; private set; }
@@ -33,10 +34,16 @@ namespace RevendaCarros.Domain.Entities
         public double Preco { get; private set; }
         public bool ArCondicionado { get; private set; }
         public bool Automatico { get; private set; }
+        public bool Disponivel { get; set; }
         public string Marca { get; private set; }
         public string Modelo { get; private set; }
         public TipoVeiculo TipoVeiculo { get; private set; }
         public string TipoOperacao { get; private set; }        
         public Venda Venda { get; private set; }
+
+        public void VendeCarro()
+        {
+            Disponivel = false;
+        }
     }
 }
