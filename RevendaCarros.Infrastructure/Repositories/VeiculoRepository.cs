@@ -72,9 +72,19 @@ namespace RevendaCarros.Infrastructure.Repositories
             return query.ToList();
         }
 
-        public Veiculo Create(Veiculo veiculo)
+        public Veiculo Create(CreateVeiculoDto veiculo)
         {
-            var result = Insert(veiculo);
+            var novoVeiculo = new Veiculo(veiculo.Placa,
+                                          veiculo.Cor,
+                                          veiculo.Preco,
+                                          veiculo.ArCondicionado,
+                                          veiculo.Automatico,
+                                          veiculo.Marca,
+                                          veiculo.Modelo,
+                                          veiculo.TipoVeiculo,
+                                          veiculo.TipoOperacao);
+
+            var result = Insert(novoVeiculo);
             return result;
         }
 

@@ -47,13 +47,49 @@ namespace RevendaCarros.UnitTest.Services
         }
 
         [TestMethod]
-        public void CreateShouldReturnVendaWhenTipoOperacaoIsVenda()
+        public void CreateWithVeiculoWithValueGreaterThan3000ShouldReturnVendaWhenTipoOperacaoIsVenda()
         {
             // Arrange     
             var vendaDto = new VendaDto
             {
                 IdVeiculo = 1,
                 Valor = 300000.00,
+                NomeComprador = "Comprador"
+            };
+
+            var imposto = new Imposto
+            {
+                Id = 1,
+                Descricao = "Imposto teste",
+                Nome = "NomeImposto",
+                Valor = 1250.00
+            };
+
+            var veiculo = new Veiculo("IKG6861", "Verde", 100.00, true, true, "Hyundai", "HB20", TipoVeiculo.Carro, "Venda");
+
+            var venda = new Venda(1, 400000.00, "Comprador");
+            vendaRepository.Create(vendaDto).Returns(venda);
+            impostoRepository.Get(Arg.Any<string>()).Returns(imposto);
+            veiculoRepository.GetById(venda.IdVeiculo).Returns(veiculo);
+            veiculoRepository.UpdateVeiculo(veiculo).Returns(veiculo);
+
+            // Act
+            var result = service.Create(vendaDto);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().Equals(venda);
+            vendaRepository.Received().Create(vendaDto);
+        }
+
+        [TestMethod]
+        public void CreateWithVeiculoWithValueLesserThan3000ShouldReturnVendaWhenTipoOperacaoIsVenda()
+        {
+            // Arrange     
+            var vendaDto = new VendaDto
+            {
+                IdVeiculo = 1,
+                Valor = 100000.00,
                 NomeComprador = "Comprador"
             };
 

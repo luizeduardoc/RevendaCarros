@@ -100,5 +100,47 @@ namespace RevendaCarros.UnitTest.Services
             result.Should().Equals(expected);
             veiculoRepository.Received().GetAlugueis();
         }
+
+        [TestMethod]
+        public void CreateShouldReturnVeiculo()
+        {
+            // Arrange
+            var createVeiculoDto = new CreateVeiculoDto
+            {
+                ArCondicionado = true,
+                Automatico = true,
+                Cor = "Verde",
+                Marca = "Hyundai",
+                Modelo = "HB20",
+                Placa = "IKG6861",
+                Preco = 100.00,
+                TipoOperacao = "Venda",
+                TipoVeiculo = TipoVeiculo.Carro
+            };
+            
+            var result = veiculoRepository.Create(createVeiculoDto).Returns(veiculo);
+
+            // Act
+            service.Create(createVeiculoDto);
+
+            // Assert
+            result.Should().Equals(result);
+            result.Should().NotBeNull();
+            veiculoRepository.Received().Create(createVeiculoDto);
+        }
+
+        [TestMethod]
+        public void GetByIdShouldReturnVeiculo()
+        {
+            // Arrange
+            var id = 1;
+            veiculoRepository.GetById(id).Returns(veiculo);
+
+            // Act
+            service.GetById(id);
+
+            // Assert
+            veiculoRepository.Received().GetById(id);
+        }
     }
 }
