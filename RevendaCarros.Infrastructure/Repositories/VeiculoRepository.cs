@@ -26,7 +26,7 @@ namespace RevendaCarros.Infrastructure.Repositories
 
         public IList<Veiculo> GetAll()
         {
-            return Query().ToList();
+            return Query().Where(x => x.Disponivel).ToList();
         }
 
         public IList<Veiculo> FindByQuery(VeiculoQueryDto queryFilter)
