@@ -26,19 +26,7 @@ namespace RevendaCarros.UnitTest.Services
         {
             service = new VeiculoService(veiculoRepository);
 
-            veiculo = new Veiculo
-            {
-                Id = 0,
-                Placa = "IKG6861",
-                Cor = "Verde",
-                Preco = 100.00,
-                ArCondicionado = true,
-                Automatico = true,
-                Marca = "Hyundai",
-                Modelo = "HB20",
-                TipoOperacao = "Venda",
-                TipoVeiculo = TipoVeiculo.Carro
-            };
+            veiculo = new Veiculo("IKG6861", "Verde", 100.00, true, true, "Hyundai", "HB20", TipoVeiculo.Carro, "Venda");            
 
             listaVeiculo = new List<Veiculo> { veiculo };
 

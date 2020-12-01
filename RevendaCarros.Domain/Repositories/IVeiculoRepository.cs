@@ -10,5 +10,6 @@ namespace RevendaCarros.Domain.Repositories
         IList<Veiculo> GetAlugueis();
         IList<Veiculo> GetAll();
         IList<Veiculo> FindByQuery(VeiculoQueryDto queryFilter);
+        Veiculo Create(Veiculo veiculo);
     }
 }

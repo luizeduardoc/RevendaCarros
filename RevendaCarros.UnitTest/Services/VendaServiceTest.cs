@@ -14,12 +14,13 @@ namespace RevendaCarros.UnitTest.Services
     public class VendaServiceTest
     {
         private readonly IVendaRepository vendaRepository = Substitute.For<IVendaRepository>();
+        private readonly IImpostoRepository impostoRepository = Substitute.For<IImpostoRepository>();
         private IVendaService service;
 
         [TestInitialize]
         public void Initialize()
         {
-            service = new VendaService(vendaRepository);
+            service = new VendaService(vendaRepository, impostoRepository);
         }
 
         [TestMethod]
@@ -53,8 +54,17 @@ namespace RevendaCarros.UnitTest.Services
                 NomeComprador = "Comprador"
             };
 
+            var imposto = new Imposto
+            {
+                Id = 1,
+                Descricao = "Imposto teste",
+                Nome = "NomeImposto",
+                Valor = 1250.00
+            };
+
             var venda = new Venda(1, 300000.00, "Comprador");
             vendaRepository.Create(vendaDto).Returns(venda);
+            impostoRepository.Get(Arg.Any<string>()).Returns(imposto);
 
             // Act
             var result = service.Create(vendaDto);

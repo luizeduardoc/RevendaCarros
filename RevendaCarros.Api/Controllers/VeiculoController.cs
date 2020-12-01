@@ -39,7 +39,13 @@ namespace RevendaCarros.Api.Controllers
         public IActionResult GetByQuery([FromQuery] VeiculoQueryDto queryFilter)
         {
             var result = service.FindByQuery(queryFilter);
+            return Ok(result);
+        }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateVeiculoDto veiculo)
+        {
+            var result = service.Create(veiculo);
             return Ok(result);
         }
     }
