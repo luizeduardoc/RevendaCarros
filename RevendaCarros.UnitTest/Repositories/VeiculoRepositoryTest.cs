@@ -218,5 +218,25 @@ namespace RevendaCarros.UnitTest.Repositories
             result.Should().Equals(veiculoModificado);
             result.Should().NotBe(veiculo);
         }
+
+        [TestMethod]
+        public void GetByPlacaShouldReturnVeiculo()
+        {
+            // Arrange
+            var placa = "ASD3245";
+            var veiculo = new List<Veiculo>
+            {
+                new Veiculo(placa, "Azul", 10000.00, true, true, "Fiat", "Uno", TipoVeiculo.Caminhao, "Venda")
+            };
+
+            AddRange(veiculo);
+
+            // Act
+            var result = repository.GetByPlaca(placa);
+
+            // Assert
+            result.Should().Equals(veiculo);
+            result.Should().NotBeNull();
+        }
     }
 }

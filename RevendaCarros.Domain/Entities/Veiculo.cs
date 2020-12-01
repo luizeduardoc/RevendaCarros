@@ -40,10 +40,11 @@ namespace RevendaCarros.Domain.Entities
         public TipoVeiculo TipoVeiculo { get; private set; }
         public string TipoOperacao { get; private set; }        
         public Venda Venda { get; private set; }
+        public Aluguel Aluguel { get; set; }
 
-        public void VendeCarro()
+        public void ChangeDisponibilidade()
         {
-            Disponivel = false;
+            Disponivel = !Disponivel;
         }
     }
 }

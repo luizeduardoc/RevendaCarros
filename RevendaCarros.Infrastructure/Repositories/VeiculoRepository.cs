@@ -99,5 +99,10 @@ namespace RevendaCarros.Infrastructure.Repositories
             var result = Update(veiculo);
             return result;
         }
+        public Veiculo GetByPlaca(string placa)
+        {
+            var veiculo = Query().Where(v => v.Placa.Equals(placa)).FirstOrDefault();
+            return veiculo;
+        }
     }
 }
