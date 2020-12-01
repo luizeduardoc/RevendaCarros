@@ -25,19 +25,7 @@ namespace RevendaCarros.UnitTest.Repositories
             // Arrange
             var veiculo = new List<Veiculo>
             {
-                new Veiculo
-                {
-                    Id = 1,
-                    Placa = "IKG6861",
-                    Cor = "Verde",
-                    Preco = 100.00,
-                    ArCondicionado = true,
-                    Automatico = true,
-                    Marca = "Hyundai",
-                    Modelo = "HB20",
-                    TipoOperacao = "Venda",
-                    TipoVeiculo = TipoVeiculo.Carro
-                }
+                new Veiculo("IKG6861", "Verde", 100.00, true, true, "Hyundai", "HB20", TipoVeiculo.Carro, "Venda")          
             };
 
             AddRange(veiculo);

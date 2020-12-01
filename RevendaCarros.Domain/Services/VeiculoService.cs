@@ -72,5 +72,21 @@ namespace RevendaCarros.Domain.Services
 
             return result;
         }
+
+        public Veiculo Create(CreateVeiculoDto veiculo)
+        {
+            var novoVeiculo = new Veiculo(veiculo.Placa,
+                                          veiculo.Cor,
+                                          veiculo.Preco,
+                                          veiculo.ArCondicionado,
+                                          veiculo.Automatico,
+                                          veiculo.Marca,
+                                          veiculo.Modelo,
+                                          veiculo.TipoVeiculo,
+                                          veiculo.TipoOperacao);
+
+            var result = repository.Create(novoVeiculo);
+            return result;
+        }
     }
 }

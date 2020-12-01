@@ -71,5 +71,11 @@ namespace RevendaCarros.Infrastructure.Repositories
 
             return query.ToList();
         }
+
+        public Veiculo Create(Veiculo veiculo)
+        {
+            var result = Insert(veiculo);
+            return result;
+        }
     }
 }
