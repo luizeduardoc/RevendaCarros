@@ -28,6 +28,13 @@ namespace RevendaCarros
                 .AddDbContext<RevendaCarrosContext>(
                     options => options.UseNpgsql(GetConnectionString()));
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddInfrastructureServices();
             services.AddDomainServices();
 
@@ -53,12 +60,7 @@ namespace RevendaCarros
 
             app.UseRouting();
 
-            app.UseCors(c => 
-            {
-                c.AllowAnyHeader();
-                c.AllowAnyMethod();
-                c.AllowAnyOrigin();
-            });
+            app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 
