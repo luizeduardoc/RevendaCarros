@@ -63,7 +63,8 @@ namespace RevendaCarros.Domain.Services
 
         private IList<EstoqueDto> CreateNovoEstoque(IList<Veiculo> veiculo)
         {
-            var novoEstoque = veiculo.Select(x => new EstoqueDto(x.Placa,
+            var novoEstoque = veiculo.Select(x => new EstoqueDto(x.Id,
+                                                                x.Placa,
                                                                 x.Cor,
                                                                 x.Preco,
                                                                 Enum.GetName(typeof(TipoVeiculo), x.TipoVeiculo),

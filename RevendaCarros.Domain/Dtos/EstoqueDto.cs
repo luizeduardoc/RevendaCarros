@@ -4,7 +4,8 @@ namespace RevendaCarros.Domain.Dtos
 {
     public class EstoqueDto
     {
-        public EstoqueDto(string placa,
+        public EstoqueDto(int id,
+                          string placa,
                           string cor,
                           double preco,
                           string tipoVeiculo,
@@ -15,6 +16,7 @@ namespace RevendaCarros.Domain.Dtos
                           string modelo,
                           bool disponivel)
         {
+            Id = id;
             Placa = placa;
             Cor = cor;
             Preco = preco;
@@ -27,6 +29,7 @@ namespace RevendaCarros.Domain.Dtos
             Disponivel = disponivel;
         }
 
+        public int Id { get; set; }
         public string Placa { get; set; }
         public string Cor { get; set; }
         public double Preco { get; set; }

@@ -30,16 +30,17 @@ namespace RevendaCarros.UnitTest.Services
 
             listaVeiculo = new List<Veiculo> { veiculo };
 
-            estoque = new EstoqueDto(veiculo.Placa,
-                                          veiculo.Cor,
-                                          veiculo.Preco,
-                                          Enum.GetName(typeof(TipoVeiculo), veiculo.TipoVeiculo),
-                                          veiculo.TipoOperacao,
-                                          veiculo.ArCondicionado,
-                                          veiculo.Automatico,
-                                          veiculo.Marca,
-                                          veiculo.Modelo,
-                                          veiculo.Disponivel);
+            estoque = new EstoqueDto(veiculo.Id,
+                                     veiculo.Placa,
+                                     veiculo.Cor,
+                                     veiculo.Preco,
+                                     Enum.GetName(typeof(TipoVeiculo), veiculo.TipoVeiculo),
+                                     veiculo.TipoOperacao,
+                                     veiculo.ArCondicionado,
+                                     veiculo.Automatico,
+                                     veiculo.Marca,
+                                     veiculo.Modelo,
+                                     veiculo.Disponivel);
 
             expected = new List<EstoqueDto> { estoque };
         }
